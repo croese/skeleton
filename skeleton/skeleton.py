@@ -1,3 +1,9 @@
 #!/usr/bin/env python3
 
-print("hello from skeleton!")
+
+def main():
+    print("hello from skeleton!")
+
+
+if __name__ == "__main__":
+    main()

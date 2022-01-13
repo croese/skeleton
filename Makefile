@@ -5,4 +5,4 @@ run:
 	./skeleton/skeleton.py
 
 test:
-	pytest
+	python -m pytest
