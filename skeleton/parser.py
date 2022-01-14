@@ -1,5 +1,5 @@
 from _pytest.python_api import raises
-from skeleton.commands import CreateFileCommand
+from skeleton.commands import CreateDirectoryCommand, CreateFileCommand
 
 
 import re
@@ -29,8 +29,12 @@ class SkeletonParserV1:
     def parse(self):
         commands = []
         for line in self._stream:
+            line = line.strip()
             if line.startswith("#"):
                 continue
-            commands.append(CreateFileCommand(line.strip()))
+            if line.endswith("/"):
+                commands.append(CreateDirectoryCommand(line))
+            else:
+                commands.append(CreateFileCommand(line))
 
         return commands
